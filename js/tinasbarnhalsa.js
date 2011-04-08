@@ -25,11 +25,6 @@ $(document).ready(function(){
                 content.load("home.html", hideLoading);
                 //content.slideDown();
                 break;
-            case "about":
-                //content.slideUp();
-                content.load("about.html", hideLoading);
-                //content.slideDown();
-                break;
             case "courses":
                 //content.slideUp();
                 content.load("cources.html", hideLoading);
@@ -40,9 +35,9 @@ $(document).ready(function(){
                 content.load("apply.html", hideLoading);
                 //content.slideDown();
                 break;
-            case "guestbook":
+            case "links":
                 //content.slideUp();
-                content.load("guestbook.html", hideLoading);
+                content.load("links.html", hideLoading);
                 //content.slideDown();
                 break;
 			case "contact":
