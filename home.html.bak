@@ -1,0 +1,14 @@
+﻿<script type="text/javascript" src="js/jquery.zrssfeed.min.js"></script>
+<script type="text/javascript">
+	$(document).ready(function () {
+		$('#news').rssfeed('http://knaplabacken.blogspot.com/feeds/posts/default', {
+		limit: 5
+		});
+	});
+</script>
+<div id="hem">
+    <h2>Hem</h2>
+    <p>hem</p>
+    
+		<div id="news"></div>
+</div>

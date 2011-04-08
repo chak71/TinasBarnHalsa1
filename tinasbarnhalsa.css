@@ -1,0 +1,173 @@
+@CHARSET "UTF-8";
+
+/******* GENERAL RESET *******/
+html, body, div, span, applet, object, iframe, h1, h2, h3, h4, h5, h6, p, blockquote, pre, a, abbr, acronym, address, big, cite, code, del, dfn, em,
+font, img, ins, kbd, q, s, samp, small, strike, strong, sub, sup, tt, var, dl, dt, dd, ol, ul, li, fieldset, form, label, legend, table, caption, tbody,
+ tfoot, thead, tr, th, td {
+border: 0pt none;
+font-family: inherit;
+font-size: 100%;
+font-style: inherit;
+font-weight: inherit;
+margin: 0pt;
+padding: 0pt;
+vertical-align: baseline;
+}
+body{
+    line-height: 14px;
+    font-size: 12px;
+    background: #fff;
+    font-family: Tahoma, Verdana, Arial, Helvetica, sans-serif;
+    margin: 0pt;
+    cursor: default;
+}
+table{
+    border-collapse: separate;
+    border-spacing: 0pt;
+}
+caption, th, td{
+    font-weight: normal;
+    text-align: left;
+}
+blockquote:before, blockquote:after, q:before, q:after{
+    content: "";
+}
+blockquote, q{
+    quotes: "" "";
+}
+input, textarea, select{
+    font-family: Tahoma, Verdana, Arial, Helvetica, sans-serif;
+    font-size: 11px;
+}
+strong{
+    font-weight: 700;
+}
+ul{
+    list-style: outside;
+}
+a{
+    cursor: pointer;
+    color: #296ba5;
+    text-decoration: none;
+}
+.clear{
+    clear: both;
+    height: 0;
+    visibility: hidden;
+    display: block;
+}
+.logo{
+	width: 365px;
+    height: 71px;
+    margin-top: 10px;
+}
+
+.facebook_logo{
+    height: 28px;
+    margin-left: 267px;
+    margin-bottom: 5px;
+}
+/******* /GENERAL RESET *******/
+/******* REUSE *******/
+h1, h2, h3, h4, h5, h6{
+	font-weight: 700;
+	color: black;
+	/*#6ea6fb;*/
+	line-height: 1.8em;
+}
+h2{
+	font-size: 22px;
+}
+/******* /REUSE *******/
+/******* CONTAINER *******/
+#container {
+    text-align:left;
+    width:750px;
+    margin-left:auto;
+    margin:0 auto;    
+}
+/******* /CONTAINER *******/
+/******* LOGOTYPE *****/
+#logotype{	
+ 	position:relative;	
+ 	text-align:left;
+ 	margin-top: 10px;
+}
+/******* /LOGOTYPE *****/
+/******* TOP *******/
+#top{
+    /* you must set it to relative, so that you can use absolute position for children elements */
+    position:relative;
+    text-align:center; 
+    width:750px; 
+    height:10px;   
+}
+/******* /TOP *******/
+/******* MENU *******/
+#top #menu{
+    /* remove the list style and spaces*/
+    margin:0; 
+    padding:0; 
+    padding-bottom: 10px;
+    list-style:none; 
+    display:inline;
+    /* position absolute so that z-index can be defined */
+    position:absolute; 
+    width:750px;
+    /* center the menu, depend on the width of you menu*/
+    left:100px; 
+    top:0px; 
+    
+    /* should be higher than #box */
+    z-index:100;
+}
+#top #menu li{
+		/* give some spaces between the list items */
+		margin:0 30px; 
+		margin-top: 30px;
+		/* display the list item in single row */
+		float:left;
+		font-family: 'Verdana'; 
+		font-variant: small-caps;
+		font-size: large;
+}
+#top #menu li:hover{
+    color: #CC017E;
+    /*#6fa5fd;*/
+    cursor: pointer;
+}
+/******* /MENU *******/
+/******* CONTENT *******/
+#content{
+  	position:relative;
+    color: #7e7e7e;
+    margin: 0 0 50px 0;
+    line-height: 1.3em;
+    text-align:center; 
+}
+#content h2{
+   	font-weight: normal;
+    padding-bottom: 0px;
+    margin-top: 60px;
+    border-bottom: 1px dashed #ddd;
+    text-align:center;
+   
+    font-family: 'Verdana'; 
+    font-variant: small-caps;
+    font-size: x-large;
+}
+#content p{
+		text-align:center; 
+		font-size: medium;
+}
+
+/******* /CONTENT *******/
+/******* FOOTER *******/
+#footer{
+    background: white;
+    padding: 10px;
+    color: #7e7e7e;
+    font-size: 11px;
+    text-align: center;
+}
+/******* /FOOTER *******/
