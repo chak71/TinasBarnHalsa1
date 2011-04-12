@@ -1,55 +1,58 @@
 <?php
-require_once('PHPMailer/class.phpmailer.php');
-
+//If the form is submitted
 $resp['status'] = 'error';
 $resp['errmessage'] = '';
-
+ 
+mail("chak71@gmail.com", "test", "", "");
 if (!empty($_POST)) {
-	if (!empty($_POST['email']) && !empty($_POST['message']) && !empty($_POST['name']) && !empty($_POST['recaptcha_response_field'])) {
-		$answer = trim(stripslashes($_POST['recaptcha_response_field']));
-		$postData['challenge'] = $_POST['recaptcha_challenge_field'];	
-		$postData['response'] = urlencode($answer);
-		$postData['remoteip'] = $_SERVER['REMOTE_ADDR'];
-		$postData['privatekey'] = 'your private key';
-		$ch = curl_init("http://api-verify.recaptcha.net/verify");
-		curl_setopt($ch, CURLOPT_POSTFIELDS, $postData);
-		curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
-		$data = curl_exec($ch);
-		curl_close($ch);
-		$response = explode(PHP_EOL, $data);
-		if ($response[0] == 'true') {
-			$mail = new PHPMailer();
-			$mail->IsSMTP(); // enable SMTP
-			$mail->SMTPDebug = 0;  // debugging: 1 = errors and messages, 2 = messages only
-			$mail->SMTPAuth = true;  // authentication enabled
-			$mail->SMTPSecure = 'ssl'; // secure transfer enabled REQUIRED for Gmail
-			$mail->Host = 'smtp.gmail.com';
-			$mail->Port = 465; 
-			$mail->Username = 'you at gmail dot com';
-			$mail->Password = 'your gmail password';      
-			$mail->SetFrom('you@website.com'); 
-			$mail->Body = 'Name: '.$_POST['name'] . PHP_EOL . 
-				'E-mail: ' . $_POST['email'] . PHP_EOL . PHP_EOL . 
-				'Message:' . PHP_EOL . $_POST['message'];
-			$mail->Subject = 'Some message from your site';
-			$mail->AddAddress('Igetthe@mail.com');
-			if (!$mail->Send()) {
-				$resp['errmessage'] = 'Mail error: '.$mail->ErrorInfo;
-				$resp['status'] = 'success';
-			} else {
-				$resp['errmessage'] = 'Message submitted succesfully!';
-			}
+	
 
-		} else {
-			if ($response[1] == 'incorrect-captcha-sol') {
-				$resp['errmessage'] = 'The entered text from the Captcha image is wrong.';
-			} else {
-				$resp['errmessage'] = 'Can\'t validate the Captcha image.';
-			}
-		}
-	} else {
-		$resp['errmessage'] = 'Missing required fields!';
-	}
-} 
+
+
+}
 echo json_encode($resp);
+ 	/*
+ 	if(isset($_POST['submit'])) {
+
+
+
+
+	//Check to make sure that the subject field is not empty
+	if(trim($_POST['subject']) == '') {
+		$hasError = true;
+	} else {
+		$subject = trim($_POST['subject']);
+	}
+
+	//Check to make sure sure that a valid email address is submitted
+	if(trim($_POST['email']) == '') {
+		$hasError = true;
+	} else if(!eregi("^[A-Z0-9._%-]+@[A-Z0-9._%-]+\.[A-Z]{2,4}$",  trim($_POST['email']))) {
+		$hasError = true;
+	} else {
+		$email = trim($_POST['email']);
+	}
+
+	//Check to make sure comments were entered
+	if(trim($_POST['message']) == '') {
+		$hasError = true;
+	} else {
+		if(function_exists('stripslashes')) {
+			$comments = stripslashes(trim($_POST['message']));
+		} else {
+			$comments = trim($_POST['message']);
+		}
+	}
+
+	//If there is no error, send the email
+	if(!isset($hasError)) {
+		$emailTo = 'chak71@gmail.com'; //Put your own email address here
+		$body = "Name: $name \n\nEmail: $email \n\nSubject: $subject \n\nComments:\n $comments";
+		$headers = 'From: My Site <'.$emailTo.'>' . "\r\n" . 'Reply-To: ' . $email;
+
+		mail($emailTo, $subject, $body, $headers);
+		$emailSent = true;
+	}
+ */
+
 ?>

@@ -1,5 +1,5 @@
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="sv">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="sv">
 	<head>
 		<meta http-equiv="content-type" content="text/html; charset=utf-8" />
 		<meta name="keywords" content="Barn,H&auml;lsa,R&aring;dgivning,HLR,hj&auml;rtlungr&auml;dding,karlskrona,blekinge,amning,s&ouml;mn,kost,f&ouml;r&auml;ldraskap,f&ouml;r&auml;ldragrupp,f&ouml;r&auml;ldrarst&ouml;d,EPDS,samtal,St&ouml;d,Tina &Aring;kesson">
@@ -15,15 +15,10 @@
 				<a href="http://www.tinasbarnhalsa.se">
 					<img src="images/TinasBarnHälsa.jpg" alt="Tinas Barn Hälsa" class="logo"/>
 				</a>
-			
-				<a href="http://www.facebook.com/pages/TinasBarnHälsa/176562495728881">
-					<img src="images/FaceBook-logo.png" alt="Tinas Barn Hälsa" class="facebook_logo"/>
-				</a>
-			</div>
-			
+			</div>			
 			
 			<div id="top">
-				<ul id="menu">
+				<ul id="menu" class="tabs">
 					<li id="home">
 						Hem
 					</li>
@@ -44,19 +39,22 @@
 			</div>
 			
 			<div id="content">
-
 			</div>
-			<!--div id="footer">
-				<p>
-					<a href="http://www.christerakesson.com">Åkesson Software Technology</a>
-				</p>
-			</div-->
+
+			<div id="footer">
+				<a href="http://www.facebook.com/pages/TinasBarnHälsa/176562495728881">
+					<img src="images/FaceBook-logo.png" alt="Tinas Barn Hälsa" class="facebook_logo"/>
+				</a>
+			</div>
 		</div>
-		<script type="text/javascript" src="http://code.jquery.com/jquery-1.5.2.min.js">
-		</script>
-		<script type="text/javascript" src="js/tinasbarnhalsa.js">
-		</script>
-		<!--script type="text/javascript" src="http://api.recaptcha.net/js/recaptcha_ajax.js">
-		</script-->
+
+		<script type="text/javascript" src="http://code.jquery.com/jquery-1.5.2.min.js"></script>
+		<script type="text/javascript" src="js/tinasbarnhalsa.js"></script>
+		<script type="text/javascript" src="js/jquery.constantfooter.js"></script>
+		<script type="text/javascript">
+	        $(document).ready(function() {
+	            $("#footer").constantfooter({ feed: "", showclose: false });	
+	        });
+    	</script>
 	</body>
 </html>

@@ -64,9 +64,77 @@ a{
 
 .facebook_logo{
     height: 28px;
-    margin-left: 267px;
-    margin-bottom: 5px;
+    margin-top: 5px;
 }
+
+fieldset{
+	padding:10px 30px;
+	margin:0;
+	border:1px solid #ccc;
+	-moz-border-radius:1em;
+	-webkit-border-radius:1em;
+	border-radius:1em;
+	border-bottom-width:10px;
+	width: 400px;
+	text-align: center;
+	margin-left: auto;
+	margin-right: auto;
+}
+
+legend{
+	color:#333;
+	padding:0 10px;
+	margin:0;
+	font-size:1.5em;
+	font-weight:400;
+}
+
+input{
+	width:250px;
+}
+
+input,textarea{
+	border:1px solid #ccc;
+	padding:5px;
+	margin:10px 0 0 0;
+}
+
+input:focus,textarea:focus{
+	background:#ffc;
+}
+
+textarea{
+	font:.9em Verdana, Arial, Helvetica, sans-serif;
+	width:250px;
+}
+
+label{
+	display:block;
+	margin:12px 0 0;
+	font-weight:700;
+	font-size:.9em;
+	float:left;
+	clear:left;
+	width:100px;
+}
+
+label:after{
+	content:": ";
+}
+
+select{
+	border:1px solid #ccc;
+	padding:5px;
+	width:261px;
+	margin:10px 0 0 0;
+} 
+
+button{
+	margin-left: auto;
+	margin-right: auto;
+	padding-left: 40px;
+}
+
 /******* /GENERAL RESET *******/
 /******* REUSE *******/
 h1, h2, h3, h4, h5, h6{
@@ -81,8 +149,8 @@ h2{
 /******* /REUSE *******/
 /******* CONTAINER *******/
 #container {
-    text-align:left;
-    width:750px;
+    text-align:center;
+    width:100%;
     margin-left:auto;
     margin:0 auto;    
 }
@@ -96,41 +164,35 @@ h2{
 /******* /LOGOTYPE *****/
 /******* TOP *******/
 #top{
-    /* you must set it to relative, so that you can use absolute position for children elements */
-    position:relative;
-    text-align:center; 
-    width:750px; 
-    height:10px;   
+	position:relative;	
+	margin-top: 80px;
+	margin-left: auto;
+	margin-right: auto;
+  
+    height:60px;   
+    
 }
 /******* /TOP *******/
 /******* MENU *******/
 #top #menu{
-    /* remove the list style and spaces*/
-    margin:0; 
-    padding:0; 
-    padding-bottom: 10px;
-    list-style:none; 
-    display:inline;
-    /* position absolute so that z-index can be defined */
-    position:absolute; 
-    width:750px;
-    /* center the menu, depend on the width of you menu*/
-    left:0px; 
-    top:0px; 
-    
+
+	list-style:none; 
+	display:inline;
+
     /* should be higher than #box */
     z-index:100;
 }
+
 #top #menu li{
-		/* give some spaces between the list items */
-		margin:0 40px; 
-		margin-top: 30px;
-		/* display the list item in single row */
-		float:left;
-		font-family: 'Verdana'; 
-		font-variant: small-caps;
-		font-size: large;
+	/* display the list item in single row */
+	float: left;
+	padding-left: 90px;
+	padding-right: 50px;
+	font-family: 'Verdana'; 
+	font-variant: small-caps;
+	font-size: large;
 }
+
 #top #menu li:hover{
     color: #CC017E;
     /*#6fa5fd;*/
@@ -144,11 +206,15 @@ h2{
     margin: 0 0 50px 0;
     line-height: 1.3em;
     text-align:center; 
+    width: 500px;
+ 	margin-left: auto;
+	margin-right: auto;
 }
+
 #content h2{
    	font-weight: normal;
     padding-bottom: 0px;
-    margin-top: 60px;
+    margin-top: 30px;
     border-bottom: 1px dashed #ddd;
     text-align:center;
    
@@ -156,18 +222,30 @@ h2{
     font-variant: small-caps;
     font-size: x-large;
 }
+
 #content p{
-		text-align:center; 
-		font-size: medium;
+	text-align: center;
+	font-size: medium;
+}
+
+#content a{
+	
 }
 
 /******* /CONTENT *******/
 /******* FOOTER *******/
 #footer{
-    background: white;
-    padding: 10px;
-    color: #7e7e7e;
-    font-size: 11px;
-    text-align: center;
+ 	position:relative;
+ 	text-align: center;
+	background-color: Black;
+	width:100%; 
+    height:40px;   
 }
 /******* /FOOTER *******/
+#links{
+	text-align: left;
+}
+
+#apply{
+	text-align: center;
+}
