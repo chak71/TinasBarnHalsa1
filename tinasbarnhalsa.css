@@ -1,5 +1,9 @@
 @CHARSET "UTF-8";
 
+@font-face{
+	font-family: myFirstFont;
+	src: url('/font/CHILD.TTF');
+}
 /******* GENERAL RESET *******/
 html, body, div, span, applet, object, iframe, h1, h2, h3, h4, h5, h6, p, blockquote, pre, a, abbr, acronym, address, big, cite, code, del, dfn, em,
 font, img, ins, kbd, q, s, samp, small, strike, strong, sub, sup, tt, var, dl, dt, dd, ol, ul, li, fieldset, form, label, legend, table, caption, tbody,
@@ -175,22 +179,26 @@ h2{
 /******* /TOP *******/
 /******* MENU *******/
 #top #menu{
-
-	list-style:none; 
-	display:inline;
+	position:relative;
+	text-align:center; 
+ 	margin-left: auto;
+	margin-right: auto;
+	
 
     /* should be higher than #box */
     z-index:100;
 }
 
 #top #menu li{
-	/* display the list item in single row */
-	float: left;
+	/* display the list item in single row 
+	float: left;*/
 	padding-left: 90px;
 	padding-right: 50px;
 	font-family: 'Verdana'; 
 	font-variant: small-caps;
 	font-size: large;
+	list-style: none; 
+	display: inline;
 }
 
 #top #menu li:hover{
