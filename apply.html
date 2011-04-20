@@ -2,8 +2,11 @@
 <div id="apply">
 	<h2>Anmälan</h2>
 	<p>Jag kommer till din arbetsplats och informerar om ämnen kring barn. </p>  
-	<div id="formcont">				
-		<form id="myform">
+	<div id="formcont">		
+		<div id="response">		
+		</div>
+	
+		<form id="myForm">
 			<fieldset>
 				<p>
 					<label for="name">Namn</label>
@@ -44,11 +47,11 @@
 					<textarea rows="5" cols="30" name="message" id="message"></textarea>
 				</p>
 				<p>
-					<input type="button" value="Skicka" id="submit_button" /> 
+					<input type="submit" value="send mail" id="sendmail" name="sendmail" />
 				</p>
 			</fieldset>
 		</form>
-	</div>
+	</div>	
 	
 	<div id="output"></div>
 	

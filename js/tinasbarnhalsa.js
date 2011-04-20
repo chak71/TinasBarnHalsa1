@@ -11,10 +11,46 @@ _gaq.push(['_trackPageview']);
 	s.parentNode.insertBefore(ga, s);
 })();
 $(document).ready( function() {
+
+	$("#sendmail").click(function(){
+		var valid = '';
+		var isr = ' is required.';
+		var name = $("#name").val();
+		var mail = $("#email").val();
+		var subject = $("#name").val();
+		var text = $("#message").val();
+		if (name.length<1) {
+			valid += '<br />Name'+isr;
+		}
+		if (!mail.match(/^([a-z0-9._-]+@[a-z0-9._-]+\.[a-z]{2,4}$)/i)) {
+			valid += '<br />A valid Email'+isr;
+		}
+		if (subject.length<1) {
+			valid += '<br />Subject'+isr;
+		}
+		if (text.length<1) {
+			valid += '<br />Text'+isr;
+		}
+		if (valid!='') {
+			$("#response").fadeIn("slow");
+			$("#response").html("Error:"+valid);
+		}
+		else {
+			var datastr ='name=' + name + '&mail=' + mail + '&subject=' + subject + '&text=' + text;
+			$("#response").css("display", "block");
+			$("#response").html("Sending message .... ");
+			$("#response").fadeIn("slow");
+			setTimeout("send('"+datastr+"')",2000);
+		}
+		return false;
+	});
+
+
 	//References
 	var sections = $("#menu li");
 	var loading = $("#loading");
 	var content = $("#content");
+
 
 	content.load("home.html");
 
@@ -55,40 +91,6 @@ $(document).ready( function() {
 				break;
 		}
 	});
-	$('#submit_button').click( function() {
-		$.ajax({
-			type: 'POST',
-			url: 'email.php',
-			data: $('form#myform').serialize(),
-			dataType: 'json',
-			beforeSend: function() {
-				var name = $('#name').val();
-				var address = $('#address').val();
-				var postalcode = $('#postalcode').val();
-				var city = $('#city').val();
-				var phonenumber = $('#phonenumber').val();
-				var email = $('#email').val();
-				var age = $('#age').val();
-				var course = $('#phonenumber').val();
-				var message = $('#message').val();
-				if (!name[0] || !address[0] || !postalcode[0] || !city[0] || !phonenumber[0]  || !email[0] || !age[0] || !course[0]) {
-					$('#output').html('Alla fälten måste fyllas i!');
-					return false;
-				}
-				emailpat = /^([a-z0-9])+([\.a-z0-9_-])*@([a-z0-9])+(\.[a-z0-9_-]+)+$/i;
-				if (!emailpat.test(email)) {
-					$('#output').html('Angiven epost adress har ett ogiltigt format');
-					return false;
-				}
-			},
-			success: function(response) {
-				if (response.status == 'success') {
-					$('#formcont').html();
-				}
-				$('#output').html(response.errmessage);
-			}
-		});
-	});
 	//show loading bar
 	function showLoading() {
 		loading
@@ -102,5 +104,19 @@ $(document).ready( function() {
 	function hideLoading() {
 		//loading.fadeTo(1000, 0);
 	};
+});    
 
-});     
+function send(datastr){
+	$.ajax({	
+		type: "POST",
+		url: "email.php",
+		data: datastr,
+		cache: false,
+		success: function(html){
+		$("#response").fadeIn("slow");
+		$("#response").html(html);
+		setTimeout('$("#response").fadeOut("slow")',2000);
+	}
+	});
+}
+ 

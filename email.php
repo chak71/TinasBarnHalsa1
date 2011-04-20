@@ -3,8 +3,17 @@
 $resp['status'] = 'error';
 $resp['errmessage'] = '';
  
-mail("chak71@gmail.com", "test", "", "");
-if (!empty($_POST)) {
+$emailTo = 'chak71@gmail.com';
+$email = trim($_POST['email']);
+$subject = trim($_POST['subject']);
+$comments = trim($_POST['message']);
+$name = trim($_POST['name']);
+$body = "Name: $name \n\nEmail: $email \n\nSubject: $subject \n\nComments:\n $comments";
+$headers = 'From: My Site <'.$emailTo.'>' . "\r\n" . 'Reply-To: ' . $email;
+$body = "Details:\n\n" . $_POST['message'];   
+mail($emailTo, $subject, $body, $headers);
+$emailSent = true;
+if(isset($_POST['submit'])) {
 	
 
 
